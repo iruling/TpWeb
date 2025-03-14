@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tp5.2</title>
+
+</head>
+<body>
+
+
+
+
+<p id="text">Texte initial</p>
+<button id="changeText">Changer le texte</button>
+
+
+
+<script>
+const button = document.getElementById("changeText");
+const paragraph = document.getElementById("text");
+
+button.addEventListener("click", () => {
+    paragraph.innerHTML = "<strong> texte en gras </strong>"
+});
+
+
+
+</script>
+
+
+
+</body>
+
+
+
+
+
+</html>

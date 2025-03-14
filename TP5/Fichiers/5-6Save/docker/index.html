@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blague Aléatoire</title>
+    <script>
+        function getBlague() {
+            fetch('src/api.php?random=true')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const blague = data[0];
+                        document.getElementById('blague').innerText = blague.texte;
+                        document.getElementById('categorie').innerText = 'Catégorie: ' + blague.categorie;
+                        document.getElementById('reponse').innerText = 'Réponse: ' + blague.reponse;
+                    } else {
+                        document.getElementById('blague').innerText = 'Aucune blague trouvée.';
+                    }
+                })
+                .catch(error => console.error('Erreur:', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Blague Aléatoire</h1>
+    <button onclick="getBlague()">Afficher une blague</button>
+    <div id="blague"></div>
+    <div id="categorie"></div>
+    <div id="reponse"></div>
+</body>
+</html>
